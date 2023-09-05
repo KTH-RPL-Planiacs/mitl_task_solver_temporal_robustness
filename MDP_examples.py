@@ -131,11 +131,11 @@ if __name__ == "__main__":
     H=7
     phi = MTLFormula.Conjunction([MTLFormula.Eventually(MTLFormula.Predicate('s_3'),1,4),MTLFormula.Eventually(MTLFormula.Predicate('s_2'),3,6)])
     # phi = MTLFormula.Conjunction([MTLFormula.Eventually(MTLFormula.Predicate('s_2'),1,4)])
-
+    Demands = [(phi,1)]
     
     start_mdp = time.time()
     timed_mdp, untimed_S = MDP_example_two(H=H)
     history_mdp = construct_history_MDP(timed_mdp, untimed_S)
     end_mdp = time.time()
     print(end_mdp-start_mdp)
-    timerobust_lp(history_mdp, H, phi, untimed_S)
+    timerobust_lp(timed_mdp, history_mdp, H, Demands, untimed_S)

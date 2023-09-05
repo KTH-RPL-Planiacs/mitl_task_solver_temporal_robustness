@@ -7,7 +7,7 @@ from compute_left_right_time_robustness import left_right_time_robustness, left_
 import time
 
 
-def timerobust_lp(hist_mdp, H, phi, untimed_S, timeout_at=30000,MAX_RIGHT_TIME_ROBUSTNESS = 10):
+def timerobust_lp(mdp, hist_mdp, H, Demands, untimed_S, timeout_at=30000,MAX_RIGHT_TIME_ROBUSTNESS = 10 ):
     #constrained mdp with a singular, cumulative constraint 
 
     start_time = time.time()
@@ -21,7 +21,7 @@ def timerobust_lp(hist_mdp, H, phi, untimed_S, timeout_at=30000,MAX_RIGHT_TIME_R
     reward_dict={}
     for s in states:
         if len(s)==H-1 and s[-1][-1] == H-1:
-            reward_dict[s]=test_time_robustness_history(s,phi,untimed_S,H, MAX_RIGHT_TIME_ROBUSTNESS)[1]
+            reward_dict[s]=test_time_robustness_history(mdp,s,Demands,untimed_S,H, MAX_RIGHT_TIME_ROBUSTNESS)[1]
         else:
             reward_dict[s]=0
     reward_time= time.time()
@@ -132,9 +132,15 @@ def calc_trace(s,H, list=False):
     else:
         return tuple(trace)
 
-def test_time_robustness_history(s,phi,S,H, MAX_RIGHT_TIME_ROBUSTNESS):
+def test_time_robustness_history(mdp, s,Demands,S,H, MAX_RIGHT_TIME_ROBUSTNESS):
     trace = calc_trace(s,H, list=True)
     # print(trace)
     # print(S)
-    muplus, muminus = left_right_time_robustness(trace,phi,S,MAX_RIGHT_TIME_ROBUSTNESS)
-    return muplus, muminus 
+    right_robustness = 0
+    left_robustness = 0
+    for (phi, priority) in Demands:
+         muplus, muminus = left_right_time_robustness(trace,phi,S,MAX_RIGHT_TIME_ROBUSTNESS)
+         right_robustness = right_robustness + muplus*priority
+         left_robustness = left_robustness + muminus*priority
+    return right_robustness, left_robustness 
+    # else:
