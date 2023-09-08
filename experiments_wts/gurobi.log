@@ -1,0 +1,88 @@
+
+Gurobi 9.5.2 (win64, gurobi_cl) logging started Fri Sep  8 19:40:55 2023
+
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-05-04
+Using license file C:\Users\user\gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (win64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file C:\Users\user\AppData\Local\Temp\7f934ff85f5d4d13b517900bb301c7cb-pulp.lp
+Reading time = 0.66 seconds
+OBJ: 351458 rows, 101031 columns, 1156127 nonzeros
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 351458 rows, 101031 columns and 1156127 nonzeros
+Model fingerprint: 0x391f89a4
+Variable types: 0 continuous, 101031 integer (95486 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [1e+00, 3e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+02]
+Presolve removed 158947 rows and 6176 columns
+Presolve time: 3.23s
+Presolved: 192511 rows, 94855 columns, 784753 nonzeros
+Variable types: 0 continuous, 94855 integer (92855 binary)
+
+Deterministic concurrent LP optimizer: primal and dual simplex (primal and dual model)
+Showing first log only...
+
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.5943930e+03   2.504438e+04   3.589168e+09      5s
+Concurrent spin time: 0.30s
+
+Solved with dual simplex (dual model)
+
+Root relaxation: objective 1.406930e+03, 13102 iterations, 6.12 seconds (6.68 work units)
+Total elapsed time = 10.04s
+Total elapsed time = 15.95s
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 1406.92997    0 2275          - 1406.92997      -     -   20s
+H    0     0                    -1225.000000 1406.92997   215%     -   20s
+     0     0 1401.40000    0 3091 -1225.0000 1401.40000   214%     -   32s
+H    0     0                    -699.0000000 1401.40000   300%     -   40s
+     0     0 1401.40000    0 3159 -699.00000 1401.40000   300%     -   42s
+     0     0 1393.00000    0 2920 -699.00000 1393.00000   299%     -   48s
+     0     0 1393.00000    0 2858 -699.00000 1393.00000   299%     -   50s
+     0     0 1393.00000    0 2955 -699.00000 1393.00000   299%     -   54s
+H    0     0                     288.0000000 1393.00000   384%     -   56s
+     0     0 1393.00000    0 2946  288.00000 1393.00000   384%     -   57s
+     0     0 1393.00000    0 1851  288.00000 1393.00000   384%     -   68s
+     0     0 1393.00000    0 1931  288.00000 1393.00000   384%     -   72s
+     0     0 1393.00000    0 1793  288.00000 1393.00000   384%     -   81s
+H    0     0                     421.0000000 1393.00000   231%     -   87s
+     0     0 1393.00000    0 1789  421.00000 1393.00000   231%     -   87s
+     0     0 1393.00000    0 1921  421.00000 1393.00000   231%     -   91s
+     0     0 1393.00000    0 1794  421.00000 1393.00000   231%     -   95s
+     0     0 1393.00000    0 1656  421.00000 1393.00000   231%     -  100s
+H    0     0                     422.0000000 1393.00000   230%     -  104s
+     0     0 1393.00000    0 1800  422.00000 1393.00000   230%     -  105s
+     0     0 1393.00000    0 1631  422.00000 1393.00000   230%     -  111s
+     0     0 1393.00000    0 1641  422.00000 1393.00000   230%     -  115s
+     0     0 1393.00000    0 1500  422.00000 1393.00000   230%     -  119s
+     0     0 1393.00000    0 1144  422.00000 1393.00000   230%     -  168s
+H    0     0                     424.0000000 1393.00000   229%     -  179s
+     0     2 1393.00000    0 1028  424.00000 1393.00000   229%     -  192s
+    23    28 1232.00000    6 1146  424.00000 1393.00000   229%   360  195s
+H   27    32                     438.0000000 1393.00000   218%   312  197s
+H   60    65                     451.0000000 1393.00000   209%   163  202s
+H   62    65                     452.0000000 1393.00000   208%   159  202s
+H   90    95                     465.0000000 1393.00000   200%   124  207s
+   109   131 1232.00000   24 1105  465.00000 1393.00000   200%   112  210s
+H  130   135                     478.0000000 1393.00000   191%   106  212s
+   156   173 1231.99915   33 1267  478.00000 1393.00000   191%  98.5  216s
+H  172   196                     492.0000000 1393.00000   183%  96.4  218s
+   195   211 1208.00000   38 1070  492.00000 1393.00000   183%  92.0  220s
+H  214   239                     502.0000000 1393.00000   177%  89.4  223s
+H  232   239                     503.0000000 1393.00000   177%  88.6  223s
+   238   247 1208.00000   47  969  503.00000 1393.00000   177%  87.2  225s
+H  267   280                     512.0000000 1393.00000   172%  86.7  235s
+H  276   280                     515.0000000 1393.00000   170%  85.7  235s
