@@ -4,6 +4,7 @@ import pulp as plp
 import matplotlib.pyplot as plt
 import numpy as np
 import random
+import time
 
 
 
@@ -22,7 +23,7 @@ def generate_plan_mtl_wts(Demands,wts,horizon, return_optimum = False, suppress_
     demands_horizon = max([phi.horizon for phi, priority in Demands])
     
 
-    
+    encoding_start = time.time()
     
     """
         Optimization function
@@ -319,9 +320,14 @@ def generate_plan_mtl_wts(Demands,wts,horizon, return_optimum = False, suppress_
     
     
     
+    encoding_time = time.time()-encoding_start
     
-    
+    solve_start = time.time()
     opt_model.solve(plp.GUROBI_CMD(msg=True))
+    solve_time = time.time()-solve_start
+    
+    
+    
     
     for phi, priority in Demands:
         if not suppress_output:
@@ -337,15 +343,23 @@ def generate_plan_mtl_wts(Demands,wts,horizon, return_optimum = False, suppress_
             print()
             print()
             print()
-    if not suppress_output:
-        print("\n\n TRAJECTORY")
-        for t in range(0,horizon):
-            print(t, [state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0])
+    
+    # print("\n\n TRAJECTORY")
+    # for t in range(0,horizon):
+        # print(t, [state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0])
+    
+    if not suppress_output: 
+        print("Encoding time",encoding_time)
+        print("Solving time",solve_time)
+        print()
+    
         
     if return_optimum:
         return [[state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0] for t in range(0,horizon)],  plp.value(opt_model.objective)
     else:
         return [[state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0] for t in range(0,horizon)]
+
+
 
 
 if __name__ == '__main__':
