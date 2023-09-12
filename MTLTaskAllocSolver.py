@@ -21,7 +21,8 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
     
     dict_vars = {}
     demands_horizon = max([phi.horizon for phi, priority in Demands])
-    
+    global constraints
+    constraints = 0
 
     encoding_start = time.time()
     
@@ -66,10 +67,12 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
         for t in range(-MAX_RIGHT_TIME,0):
             b_s_t = plp.LpVariable('b_s_'+state+'_t_'+str(t),cat='Binary')
             opt_model += b_s_t == 0
+            constraints += 1
             dict_vars['b_s_'+state+'_t_'+str(t)] = b_s_t
     
     #Kurtz and Lin (2022). Establishes s_0 (5a)
     opt_model += dict_vars['b_s_'+wts.s_0+'_t_'+str(0)] == 1
+    constraints += 1
     
     """
     The Kurtz and Lin (2022) encoding of the transition relation
@@ -91,6 +94,7 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
     #Encodes that 0 or 1 state can be occupied at each timestep.
     for t in range(0,horizon): 
         opt_model += 0 <= plp.lpSum([dict_vars['b_s_'+state+'_t_'+str(t)] for state in wts.S]) <= 1
+        constraints += 1
     
     #transition relations depending on the weights, over time.
     for t in range(0,horizon-1): 
@@ -111,17 +115,20 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
                             adding_at_t[t+wts.C[(state,t,s_prime)]] = ['b_s_'+s_prime+'_t_'+str(t+wts.C[(state,t,s_prime)])]
             for add_t in adding_at_t:
                 opt_model += 0 <= plp.lpSum([dict_vars[var] for var in adding_at_t[add_t]]) <= 1
+                constraints += 1
             
             opt_model += plp.lpSum([dict_vars['b_s_'+s_prime+'_t_'+str(t+wts.C[(state,t,s_prime)])] for s_prime in wts.adjacent(state)]) >= dict_vars['b_s_'+state+'_t_'+str(t)]
+            constraints += 1
             
             #to allow only one of the possible transitions to be taken!
             opt_model += plp.lpSum([dict_vars['b_s_'+s_prime+'_t_'+str(t+wts.C[(state,t,s_prime)])] for s_prime in wts.adjacent(state)]) <= 1
+            constraints += 1
             
     
     #Recursive function to model the satisfaction of an MTL formula. 
     #Kurtz and Lin (2022), Eq. (6,7,8a,8b,8c,8d)
     def model_phi(phi,t,opt_model,dict_vars):
-    
+        global constraints
         #defines the variables and constraints for an MTL predicate
         if isinstance(phi, MTLFormula.Predicate):
             try:
@@ -130,6 +137,7 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
                 zvar = plp.LpVariable('z1_'+str(id(phi))+'_t_'+str(t),cat='Binary')
                 dict_vars['z1_'+str(id(phi))+'_t_'+str(t)] = zvar
             opt_model += zvar == plp.lpSum([dict_vars['b_s_'+state+'_t_'+str(t)] for state in wts.S if wts.label_of_state(state)==phi.predicate])
+            constraints += 1
             
         elif isinstance(phi, MTLFormula.Negation):
             model_phi(phi.formula,t,opt_model,dict_vars)
@@ -140,6 +148,7 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
                 zvar = plp.LpVariable('z1_'+str(id(phi))+'_t_'+str(t),cat='Binary')
                 dict_vars['z1_'+str(id(phi))+'_t_'+str(t)] = zvar
             opt_model += zvar == 1-zvar1
+            constraints += 1
             
         elif isinstance(phi, MTLFormula.Disjunction):
             #define the variable for the conjunction
@@ -154,7 +163,9 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
                 model_phi(phi_i,t,opt_model,dict_vars)
                 #enforcing the constraints on them
                 opt_model += zvar >= dict_vars['z1_'+str(id(phi_i))+'_t_'+str(t)]
+                constraints += 1
             opt_model += zvar <= plp.lpSum([dict_vars['z1_'+str(id(phi_i))+'_t_'+str(t)] for phi_i in phi.list_formulas])
+            constraints += 1
             
         elif isinstance(phi, MTLFormula.Conjunction):
             #define the variable for the conjunction
@@ -169,7 +180,9 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
                 model_phi(phi_i,t,opt_model,dict_vars)
                 #enforcing the constraints on them
                 opt_model += zvar <= dict_vars['z1_'+str(id(phi_i))+'_t_'+str(t)]
+                constraints += 1
             opt_model += zvar >= 1-len(phi.list_formulas)+ plp.lpSum([dict_vars['z1_'+str(id(phi_i))+'_t_'+str(t)] for phi_i in phi.list_formulas])
+            constraints += 1
                 
         elif isinstance(phi, MTLFormula.Always):
             try:
@@ -180,7 +193,9 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
             for t_i in range(t+phi.t1,t+phi.t2+1):
                 model_phi(phi.formula,t_i,opt_model,dict_vars)
                 opt_model += zvar <= dict_vars['z1_'+str(id(phi.formula))+'_t_'+str(t_i)]
+                constraints += 1
             opt_model += zvar >= 1 - (phi.t2+1-phi.t1) + plp.lpSum([dict_vars['z1_'+str(id(phi.formula))+'_t_'+str(t_i)] for t_i in range(t+phi.t1,t+phi.t2+1)])
+            constraints += 1
             
         elif isinstance(phi, MTLFormula.Eventually):
             try:
@@ -191,7 +206,9 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
             for t_i in range(t+phi.t1,t+phi.t2+1):
                 model_phi(phi.formula,t_i,opt_model,dict_vars)
                 opt_model += zvar >= dict_vars['z1_'+str(id(phi.formula))+'_t_'+str(t_i)]
+                constraints += 1
             opt_model += zvar <= plp.lpSum([dict_vars['z1_'+str(id(phi.formula))+'_t_'+str(t_i)] for t_i in range(t+phi.t1,t+phi.t2+1)])
+            constraints += 1
         
         elif isinstance(phi, MTLFormula.Until):
             try:
@@ -208,12 +225,16 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
                     dict_vars['z1disj_'+str(id(phi))+'_t_'+str(t_prime)] = zvar_disj
                 model_phi(phi.second_formula,t_prime,opt_model,dict_vars)
                 opt_model += zvar_disj <= dict_vars['z1_'+str(id(phi.second_formula))+'_t_'+str(t_prime)]
+                constraints += 1
                 for t_prime_prime in range(t,t_prime):
                     model_phi(phi.first_formula,t_prime_prime,opt_model,dict_vars)
                     opt_model += zvar_disj <= dict_vars['z1_'+str(id(phi.first_formula))+'_t_'+str(t_prime_prime)]
+                    constraints += 1
                 opt_model += zvar_disj >= 1 - (t_prime-t) + plp.lpSum([dict_vars['z1_'+str(id(phi.first_formula))+'_t_'+str(t_prime_prime)] for t_prime_prime in range(t,t_prime)]) + dict_vars['z1_'+str(id(phi.second_formula))+'_t_'+str(t_prime)]
                 opt_model += zvar >= zvar_disj
-            opt_model += zvar <= plp.lpSum([dict_vars['z1disj_'+str(id(phi))+'_t_'+str(t_prime)] for t_prime in range(t+phi.t1,t+phi.t2+1)])    
+                constraints += 2
+            opt_model += zvar <= plp.lpSum([dict_vars['z1disj_'+str(id(phi))+'_t_'+str(t_prime)] for t_prime in range(t+phi.t1,t+phi.t2+1)])  
+            constraints += 1  
     
     
     #Recursive call of model_phi   
@@ -233,10 +254,12 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
         c_1_phi_Hplus1 = plp.LpVariable('c_1_'+str(id(phi))+'_t_'+str(horizon-demands_horizon),cat='Integer')
         dict_vars['c_1_'+str(id(phi))+'_t_'+str(horizon-demands_horizon)] = c_1_phi_Hplus1
         opt_model += dict_vars['c_1_'+str(id(phi))+'_t_'+str(horizon-demands_horizon)] == 0
+        constraints += 1
             
         c_0_phi_Hplus1 = plp.LpVariable('c_0_'+str(id(phi))+'_t_'+str(horizon-demands_horizon),cat='Integer')
         dict_vars['c_0_'+str(id(phi))+'_t_'+str(horizon-demands_horizon)] = c_0_phi_Hplus1
         opt_model += dict_vars['c_0_'+str(id(phi))+'_t_'+str(horizon-demands_horizon)] == 0
+        constraints += 1
         
         for t in reversed(range(horizon-demands_horizon)):
             c_1_phi_t = plp.LpVariable('c_1_'+str(id(phi))+'_t_'+str(t),cat='Integer')
@@ -245,10 +268,12 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
             x_l, x_u = -(horizon-demands_horizon), horizon-demands_horizon
             opt_model += x_l*dict_vars['z1_'+str(id(phi))+'_t_'+str(t)] <= c_1_phi_t <= x_u*dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]
             opt_model += (dict_vars['c_1_'+str(id(phi))+'_t_'+str(t+1)] + 1) - (x_u * (1 - dict_vars['z1_'+str(id(phi))+'_t_'+str(t)])) <= c_1_phi_t <= (dict_vars['c_1_'+str(id(phi))+'_t_'+str(t+1)] + 1) - (x_l * (1 - dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]))
+            constraints += 2
             
             c_1_phi_t_tilde = plp.LpVariable('c_1_'+str(id(phi))+'_t_'+str(t)+'_tilde',cat='Integer')
             dict_vars['c_1_'+str(id(phi))+'_t_'+str(t)+'_tilde'] = c_1_phi_t_tilde
             opt_model += c_1_phi_t_tilde == c_1_phi_t - dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]
+            constraints += 1
             
             c_0_phi_t = plp.LpVariable('c_0_'+str(id(phi))+'_t_'+str(t),cat='Integer')
             dict_vars['c_0_'+str(id(phi))+'_t_'+str(t)] = c_0_phi_t
@@ -256,10 +281,12 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
             x_l, x_u = -(horizon-demands_horizon), horizon-demands_horizon
             opt_model += x_l*(1-dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]) <= c_0_phi_t <= x_u*(1-dict_vars['z1_'+str(id(phi))+'_t_'+str(t)])
             opt_model += (dict_vars['c_0_'+str(id(phi))+'_t_'+str(t+1)] - 1) - (x_u * (1 - (1-dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]))) <= c_0_phi_t <= (dict_vars['c_0_'+str(id(phi))+'_t_'+str(t+1)] - 1) - (x_l * (1 - (1-dict_vars['z1_'+str(id(phi))+'_t_'+str(t)])))
+            constraints += 2
             
             c_0_phi_t_tilde = plp.LpVariable('c_0_'+str(id(phi))+'_t_'+str(t)+'_tilde',cat='Integer')
             dict_vars['c_0_'+str(id(phi))+'_t_'+str(t)+'_tilde'] = c_0_phi_t_tilde
             opt_model += c_0_phi_t_tilde == c_0_phi_t + (1 - dict_vars['z1_'+str(id(phi))+'_t_'+str(t)])
+            constraints += 1
             
             if t==0:
                 #already exits
@@ -268,6 +295,7 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
                 mu_plus_phi_t = plp.LpVariable('muplus_'+str(id(phi))+'_t_'+str(t),cat='Integer')
                 dict_vars['muplus_'+str(id(phi))+'_t_'+str(t)] = mu_plus_phi_t
             opt_model += mu_plus_phi_t == c_0_phi_t_tilde + c_1_phi_t_tilde
+            constraints += 1
     
     
     
@@ -285,10 +313,12 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
         c_1_minus_phi_min_h = plp.LpVariable('c_1_minus_'+str(id(phi))+'_t_'+str(-MAX_RIGHT_TIME-1),cat='Integer')
         dict_vars['c_1_minus_'+str(id(phi))+'_t_'+str(-MAX_RIGHT_TIME-1)] = c_1_minus_phi_min_h
         opt_model += dict_vars['c_1_minus_'+str(id(phi))+'_t_'+str(-MAX_RIGHT_TIME-1)] == 0
+        constraints += 1
             
         c_0_minus_phi_min1 = plp.LpVariable('c_0_minus_'+str(id(phi))+'_t_'+str(-MAX_RIGHT_TIME-1),cat='Integer')
         dict_vars['c_0_minus_'+str(id(phi))+'_t_'+str(-MAX_RIGHT_TIME-1)] = c_0_minus_phi_min1
         opt_model += dict_vars['c_0_minus_'+str(id(phi))+'_t_'+str(-MAX_RIGHT_TIME-1)] == 0
+        constraints += 1
 
         for t in range(-MAX_RIGHT_TIME,1):
             c_1_minus_phi_t = plp.LpVariable('c_1_minus_'+str(id(phi))+'_t_'+str(t),cat='Integer')
@@ -297,10 +327,12 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
             x_l, x_u = -MAX_RIGHT_TIME-2, MAX_RIGHT_TIME+2
             opt_model += x_l*dict_vars['z1_'+str(id(phi))+'_t_'+str(t)] <= c_1_minus_phi_t <= x_u*dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]
             opt_model += (dict_vars['c_1_minus_'+str(id(phi))+'_t_'+str(t-1)] + 1) - (x_u * (1 - dict_vars['z1_'+str(id(phi))+'_t_'+str(t)])) <= c_1_minus_phi_t <= (dict_vars['c_1_minus_'+str(id(phi))+'_t_'+str(t-1)] + 1) - (x_l * (1 - dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]))
+            constraints += 2
             
             c_1_minus_phi_t_tilde = plp.LpVariable('c_1_minus_'+str(id(phi))+'_t_'+str(t)+'_tilde',cat='Integer')
             dict_vars['c_1_minus_'+str(id(phi))+'_t_'+str(t)+'_tilde'] = c_1_minus_phi_t_tilde
             opt_model += c_1_minus_phi_t_tilde == c_1_minus_phi_t - dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]
+            constraints += 1
             
             c_0_minus_phi_t = plp.LpVariable('c_0_minus_'+str(id(phi))+'_t_'+str(t),cat='Integer')
             dict_vars['c_0_minus_'+str(id(phi))+'_t_'+str(t)] = c_0_minus_phi_t
@@ -308,19 +340,28 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
             x_l, x_u = -MAX_RIGHT_TIME-2, MAX_RIGHT_TIME+2
             opt_model += x_l*(1-dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]) <= c_0_minus_phi_t <= x_u*(1-dict_vars['z1_'+str(id(phi))+'_t_'+str(t)])
             opt_model += (dict_vars['c_0_minus_'+str(id(phi))+'_t_'+str(t-1)] - 1) - (x_u * (1 - (1-dict_vars['z1_'+str(id(phi))+'_t_'+str(t)]))) <= c_0_minus_phi_t <= (dict_vars['c_0_minus_'+str(id(phi))+'_t_'+str(t-1)] - 1) - (x_l * (1 - (1-dict_vars['z1_'+str(id(phi))+'_t_'+str(t)])))
+            constraints += 2
             
             c_0_minus_phi_t_tilde = plp.LpVariable('c_0_minus_'+str(id(phi))+'_t_'+str(t)+'_tilde',cat='Integer')
             dict_vars['c_0_minus_'+str(id(phi))+'_t_'+str(t)+'_tilde'] = c_0_minus_phi_t_tilde
             opt_model += c_0_minus_phi_t_tilde == c_0_minus_phi_t + (1 - dict_vars['z1_'+str(id(phi))+'_t_'+str(t)])
+            constraints += 2
             
 
             mu_minus_phi_t = plp.LpVariable('muminus_'+str(id(phi))+'_t_'+str(t),cat='Integer')
             dict_vars['muminus_'+str(id(phi))+'_t_'+str(t)] = mu_minus_phi_t
             opt_model += mu_minus_phi_t == c_0_minus_phi_t_tilde + c_1_minus_phi_t_tilde
+            constraints += 1
     
     
     
     encoding_time = time.time()-encoding_start
+    
+    
+    print("Encoding time",encoding_time)
+    print("LP variables",len(dict_vars))
+    print("LP constrain",constraints)
+    
     
     solve_start = time.time()
     opt_model.solve(plp.GUROBI_CMD(msg=True))
@@ -350,6 +391,8 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
     
     print("Encoding time",encoding_time)
     print("Solving time",solve_time)
+    print("LP variables",len(dict_vars))
+    print("LP constrain",constraints)
     print()
     
     return [[state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0] for t in range(0,horizon)]

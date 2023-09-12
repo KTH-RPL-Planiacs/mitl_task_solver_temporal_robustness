@@ -1,0 +1,162 @@
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-05-04
+Using license file C:\Users\user\gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (win64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file C:\Users\user\AppData\Local\Temp\be89e0f409b84aacb1407f0e4a624c66-pulp.lp
+Reading time = 0.05 seconds
+OBJ: 15157 rows, 8082 columns, 49335 nonzeros
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 15157 rows, 8082 columns and 49335 nonzeros
+Model fingerprint: 0x34ac9ca3
+Variable types: 0 continuous, 8082 integer (6942 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+01]
+  Objective range  [1e+00, 3e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+01]
+Presolve removed 9614 rows and 4162 columns
+Presolve time: 0.13s
+Presolved: 5543 rows, 3920 columns, 25243 nonzeros
+Variable types: 0 continuous, 3920 integer (3920 binary)
+
+Root relaxation: interrupted, 0 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+H    0     0                      -0.0000000   -0.00000  0.00%     -    0s
+
+Explored 1 nodes (0 simplex iterations) in 0.17 seconds (0.13 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 1: -0 
+No other solutions better than -0
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -0.000000000000e+00, best bound -0.000000000000e+00, gap 0.0000%
+
+Wrote result file 'C:\Users\user\AppData\Local\Temp\be89e0f409b84aacb1407f0e4a624c66-pulp.sol'
+
+Encoding time 0.4138927459716797
+LP variables 8082
+LP constrain 15367
+\mathcal{F}_{[6,12]}(K) 1
+muplus 0.0 muminus -20.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [0.0, -1.0, -2.0, -3.0, -4.0, -5.0, -6.0, -7.0, -8.0, -9.0, -10.0, -11.0, -12.0, -13.0, -14.0, -15.0, -16.0, -17.0, -18.0, -19.0, -20.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{F}_{[15,18]}(M2) 1
+muplus 0.0 muminus -20.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [0.0, -1.0, -2.0, -3.0, -4.0, -5.0, -6.0, -7.0, -8.0, -9.0, -10.0, -11.0, -12.0, -13.0, -14.0, -15.0, -16.0, -17.0, -18.0, -19.0, -20.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{G}_{[30,35]}(E2) 1
+muplus 0.0 muminus -40.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [-43.0, -21.0, -22.0, -23.0, -24.0, -25.0, -26.0, -27.0, -28.0, -29.0, -30.0, -31.0, -32.0, -33.0, -34.0, -35.0, -36.0, -37.0, -38.0, -39.0, -40.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{F}_{[40,45]}(M2) 3
+muplus 0.0 muminus -40.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [-43.0, -21.0, -22.0, -23.0, -24.0, -25.0, -26.0, -27.0, -28.0, -29.0, -30.0, -31.0, -32.0, -33.0, -34.0, -35.0, -36.0, -37.0, -38.0, -39.0, -40.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{F}_{[47,49]}(O4) 1
+muplus 0.0 muminus -40.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [-43.0, -21.0, -22.0, -23.0, -24.0, -25.0, -26.0, -27.0, -28.0, -29.0, -30.0, -31.0, -32.0, -33.0, -34.0, -35.0, -36.0, -37.0, -38.0, -39.0, -40.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{G}_{[20,22]}(P) 1
+muplus 0.0 muminus -20.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [0.0, -1.0, -2.0, -3.0, -4.0, -5.0, -6.0, -7.0, -8.0, -9.0, -10.0, -11.0, -12.0, -13.0, -14.0, -15.0, -16.0, -17.0, -18.0, -19.0, -20.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{G}_{[14,16]}(E1) 3
+muplus 0.0 muminus -20.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [0.0, -1.0, -2.0, -3.0, -4.0, -5.0, -6.0, -7.0, -8.0, -9.0, -10.0, -11.0, -12.0, -13.0, -14.0, -15.0, -16.0, -17.0, -18.0, -19.0, -20.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{F}_{[28,32]}(F1_O1) 3
+muplus 0.0 muminus -40.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [-43.0, -21.0, -22.0, -23.0, -24.0, -25.0, -26.0, -27.0, -28.0, -29.0, -30.0, -31.0, -32.0, -33.0, -34.0, -35.0, -36.0, -37.0, -38.0, -39.0, -40.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{F}_{[30,45]}(F1_M1) 2
+muplus 0.0 muminus -4.0
+
+muplus [0.0]
+z_phi [1.0]
+
+muminus [-45.0, -23.0, -22.0, -21.0, -20.0, -19.0, -18.0, -17.0, -16.0, -15.0, -14.0, -13.0, -12.0, -11.0, -10.0, -9.0, -8.0, -7.0, -6.0, -5.0, -4.0]
+z_phi_negs [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+
+
+
+\mathcal{F}_{[45,49]}(E2) 1
+muplus 0.0 muminus 5.0
+
+muplus [0.0]
+z_phi [1.0]
+
+muminus [-43.0, -21.0, -22.0, -23.0, -24.0, -25.0, -26.0, -27.0, -28.0, -29.0, -30.0, -31.0, -32.0, -33.0, -34.0, -14.0, 1.0, 2.0, 3.0, 4.0, 5.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+
+
+
+Encoding time 0.4138927459716797
+Solving time 0.7649223804473877
+LP variables 8082
+LP constrain 15367
+
+[['s_0_3'], ['s_1_3'], ['s_2_3'], ['s_3_3'], [], [], ['s_3_21'], [], [], ['f_1_s_3_21'], [], [], ['f_1_s_3_3'], ['f_1_s_2_3'], ['f_1_s_1_3'], ['f_1_s_1_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_0_2'], ['f_1_s_1_2'], ['f_1_s_1_1'], ['f_1_s_2_1'], ['f_1_s_3_1'], ['s_3_21'], ['s_3_21'], ['f_1_s_3_20'], ['s_3_21'], ['s_3_3'], ['f_1_s_3_1']]
