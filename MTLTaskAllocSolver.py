@@ -9,7 +9,7 @@ import time
 
 
 
-def generate_plan_mtl_wts(Demands,wts,horizon):
+def generate_plan_mtl_wts(Demands,wts,horizon, return_optimum = False, suppress_output = False):
 
 
     #BIG M Constant
@@ -371,23 +371,28 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
     
     
     for phi, priority in Demands:
-        print(phi, priority)
-        print("muplus", dict_vars['muplus_'+str(id(phi))+'_t_0'].varValue, "muminus", dict_vars['muminus_'+str(id(phi))+'_t_0'].varValue)
-        print()
+        if not suppress_output:
+            print(phi, priority)
+            print("muplus", dict_vars['muplus_'+str(id(phi))+'_t_0'].varValue, "muminus", dict_vars['muminus_'+str(id(phi))+'_t_0'].varValue)
+            print()
 
-        print("muplus", [dict_vars['muplus_'+str(id(phi))+'_t_'+str(t)].varValue for t in range(0,horizon-demands_horizon)])        
-        print("z_phi", [dict_vars['z1_'+str(id(phi))+'_t_'+str(t)].varValue for t in range(0,horizon-demands_horizon)])
-        print()
-        print("muminus", [dict_vars['muminus_'+str(id(phi))+'_t_'+str(t)].varValue for t in range(-MAX_RIGHT_TIME,1)])
-        print("z_phi_negs", [dict_vars['z1_'+str(id(phi))+'_t_'+str(t)].varValue for t in range(-MAX_RIGHT_TIME,1)])
-        print()
-        print()
-        print()
+            print("muplus", [dict_vars['muplus_'+str(id(phi))+'_t_'+str(t)].varValue for t in range(0,horizon-demands_horizon)])        
+            print("z_phi", [dict_vars['z1_'+str(id(phi))+'_t_'+str(t)].varValue for t in range(0,horizon-demands_horizon)])
+            print()
+            print("muminus", [dict_vars['muminus_'+str(id(phi))+'_t_'+str(t)].varValue for t in range(-MAX_RIGHT_TIME,1)])
+            print("z_phi_negs", [dict_vars['z1_'+str(id(phi))+'_t_'+str(t)].varValue for t in range(-MAX_RIGHT_TIME,1)])
+            print()
+            print()
+            print()
     
     # print("\n\n TRAJECTORY")
     # for t in range(0,horizon):
         # print(t, [state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0])
     
+    if not suppress_output: 
+        print("Encoding time",encoding_time)
+        print("Solving time",solve_time)
+        print()
     
     print("Encoding time",encoding_time)
     print("Solving time",solve_time)
@@ -395,7 +400,12 @@ def generate_plan_mtl_wts(Demands,wts,horizon):
     print("LP constrain",constraints)
     print()
     
-    return [[state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0] for t in range(0,horizon)]
+    if return_optimum:
+        return [[state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0] for t in range(0,horizon)],  plp.value(opt_model.objective)
+    else:
+        return [[state for state in wts.S if dict_vars['b_s_'+state+'_t_'+str(t)].varValue == 1.0] for t in range(0,horizon)]
+
+
 
 
 if __name__ == '__main__':
