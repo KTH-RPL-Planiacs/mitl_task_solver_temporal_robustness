@@ -1,0 +1,97 @@
+Set parameter Username
+Set parameter LogFile to value "gurobi.log"
+Academic license - for non-commercial use only - expires 2024-05-04
+Using license file C:\Users\user\gurobi.lic
+
+Gurobi Optimizer version 9.5.2 build v9.5.2rc0 (win64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read LP format model from file C:\Users\user\AppData\Local\Temp\07d3a92c0bf942239a33fcf38d2b8c9b-pulp.lp
+Reading time = 0.02 seconds
+OBJ: 7438 rows, 4037 columns, 24052 nonzeros
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 7438 rows, 4037 columns and 24052 nonzeros
+Model fingerprint: 0xe3990d59
+Variable types: 0 continuous, 4037 integer (3467 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+01]
+  Objective range  [1e+00, 3e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+01]
+Presolve removed 4531 rows and 1879 columns
+Presolve time: 0.06s
+Presolved: 2907 rows, 2158 columns, 13231 nonzeros
+Variable types: 0 continuous, 2158 integer (2158 binary)
+Found heuristic solution: objective -0.0000000
+
+Explored 0 nodes (0 simplex iterations) in 0.10 seconds (0.05 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 1: -0 
+No other solutions better than -0
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -0.000000000000e+00, best bound -0.000000000000e+00, gap 0.0000%
+
+Wrote result file 'C:\Users\user\AppData\Local\Temp\07d3a92c0bf942239a33fcf38d2b8c9b-pulp.sol'
+
+\mathcal{F}_{[6,12]}(K) 1
+muplus 0.0 muminus -20.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [0.0, -1.0, -2.0, -3.0, -4.0, -5.0, -6.0, -7.0, -8.0, -9.0, -10.0, -11.0, -12.0, -13.0, -14.0, -15.0, -16.0, -17.0, -18.0, -19.0, -20.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{F}_{[15,18]}(M2) 1
+muplus 0.0 muminus -35.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [0.0, -1.0, -2.0, -26.0, -4.0, -43.0, -21.0, -22.0, -23.0, -24.0, -25.0, -26.0, -27.0, -28.0, -29.0, -30.0, -31.0, -32.0, -33.0, -34.0, -35.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{G}_{[30,35]}(E2) 1
+muplus 0.0 muminus -20.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [-23.0, -1.0, -25.0, -3.0, -27.0, -5.0, -6.0, -7.0, -8.0, -9.0, -10.0, -11.0, -12.0, -13.0, -14.0, -15.0, -16.0, -17.0, -18.0, -19.0, -20.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{F}_{[40,45]}(M2) 3
+muplus 0.0 muminus -20.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [-23.0, -1.0, -25.0, -3.0, -27.0, -5.0, -6.0, -7.0, -8.0, -9.0, -10.0, -11.0, -12.0, -13.0, -14.0, -15.0, -16.0, -17.0, -18.0, -19.0, -20.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+\mathcal{F}_{[48,49]}(Jana) 1
+muplus 0.0 muminus -20.0
+
+muplus [0.0]
+z_phi [0.0]
+
+muminus [-23.0, -1.0, -25.0, -3.0, -27.0, -5.0, -6.0, -7.0, -8.0, -9.0, -10.0, -11.0, -12.0, -13.0, -14.0, -15.0, -16.0, -17.0, -18.0, -19.0, -20.0]
+z_phi_negs [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+Encoding time 0.1366567611694336
+Solving time 0.40766429901123047
+LP variables time 4037
+
+[['s_0_3'], ['s_1_3'], ['s_2_3'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_4'], ['s_2_3'], ['s_3_3'], [], ['s_3_1']]

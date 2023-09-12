@@ -1,0 +1,3 @@
+Encoding time 4.869855642318726
+LP variables 56937
+LP constrain 233051
