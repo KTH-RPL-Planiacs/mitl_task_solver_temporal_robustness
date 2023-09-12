@@ -1,8 +1,11 @@
 from MDP_Object import MDP
 from MTLTaskAllocSolver_MDP2 import timerobust_lp
 from MTL import MTLFormula
+from WTS import WTS
 
 import time
+
+
 
 
 def construct_timed_MDP(untimed_initial_state, untimed_S, actions, additive_time_transition_dict, H):
@@ -30,7 +33,7 @@ def construct_timed_MDP(untimed_initial_state, untimed_S, actions, additive_time
 
     return timed_mdp
 
-def construct_history_MDP(timed_mdp, untimed_S):
+def construct_history_MDP(timed_mdp, untimed_S, H):
     timed_initial_state = timed_mdp.get_initial_state()
     timed_states = timed_mdp.get_states()
     actions = timed_mdp.get_actions()
@@ -80,9 +83,40 @@ def construct_history_MDP(timed_mdp, untimed_S):
     return history_mdp
 
         
+def construct_bounding_WTS(untimed_initial_state, untimed_S, additive_time_transition_dict,  H):
+   
+    T= []
+    C_worst = {}
+    C_best = {}
+    for current_state, current_state_dict in additive_time_transition_dict.items():
+        for action, action_dict in current_state_dict.items():
+            maxtime = 0
+            mintime = H+1
+            for (next_state, time), prob in action_dict.items():
+                maxtime = max(maxtime, time)
+                mintime = min(mintime, time)
+            T.append((current_state, next_state))
+            for t in range(0, H):
+                C_worst[current_state, t, next_state] = maxtime
+                C_best[current_state, t, next_state] = mintime
 
 
-def MDP_example_one(H=6):
+    AP = untimed_S
+
+    L = {}
+    for s in untimed_S:
+        L[s] = s
+
+
+    wts_worst = WTS(untimed_S,untimed_initial_state, T,AP,L,C_worst)
+    wts_best = WTS(untimed_S,untimed_initial_state, T,AP,L,C_best)
+    return wts_worst, wts_best
+
+
+
+
+
+def MDP_example_one(H=6, H_receeding = 6):
     untimed_initial_state = 's_1'
     untimed_S = ['s_1','s_2']
     actions = ['s_1_1','s_1_2','s_2_1','s_2_2'] # Alexis called these states
@@ -92,11 +126,12 @@ def MDP_example_one(H=6):
          's_2':{'s_2_2':{('s_2',1):1},'s_2_1':{('s_1',1):.5, ('s_1',2):.5}}
         }
 
-    timed_mdp = construct_timed_MDP(untimed_initial_state, untimed_S, actions, additive_time_transition_dict,  H)
-    return timed_mdp, untimed_S
+    timed_mdp = construct_timed_MDP(untimed_initial_state, untimed_S, actions, additive_time_transition_dict,  H_receeding)
+    wts_worst, wts_best = construct_bounding_WTS(untimed_initial_state, untimed_S, additive_time_transition_dict,  H)
+    return timed_mdp, untimed_S, wts_worst, wts_best
 
 
-def MDP_example_two(H=3):
+def MDP_example_two(H=6, H_receeding = 6):
 
     untimed_initial_state = 's_1'
     untimed_S= ['s_1','s_2','s_3']
@@ -109,10 +144,11 @@ def MDP_example_two(H=3):
         's_3':{'s_3_3':{('s_3',1):1},'s_3_1':{('s_1',1):.2, ('s_1',2):.8},'s_3_2':{('s_2',1):.5, ('s_2',2):.5}}
         }
 
-    timed_mdp = construct_timed_MDP(untimed_initial_state, untimed_S, actions, additive_time_transition_dict,  H)
-    return timed_mdp, untimed_S
+    timed_mdp = construct_timed_MDP(untimed_initial_state, untimed_S, actions, additive_time_transition_dict,  H_receeding)
+    wts_worst, wts_best = construct_bounding_WTS(untimed_initial_state, untimed_S, additive_time_transition_dict,  H)
+    return timed_mdp, untimed_S, wts_worst, wts_best
 
-def MDP_example_three(H=6):
+def MDP_example_three(H=6, H_receeding = 6):
     untimed_initial_state = 's_0'
     untimed_S = ['s_0','s_1']
     actions = ['s_0_0','s_1_0','s_0_1','s_1_1'] # Alexis called these states
@@ -122,20 +158,25 @@ def MDP_example_three(H=6):
          's_1':{'s_1_1':{('s_1',1):1},'s_1_0':{('s_0',1):.1, ('s_0',2):.3, ('s_0',3):.3, ('s_0',4):.3}}
         }
 
-    timed_mdp = construct_timed_MDP(untimed_initial_state, untimed_S, actions, additive_time_transition_dict,  H)
-    return timed_mdp, untimed_S
+    timed_mdp = construct_timed_MDP(untimed_initial_state, untimed_S, actions, additive_time_transition_dict,  H_receeding)
+    wts_worst, wts_best = construct_bounding_WTS(untimed_initial_state, untimed_S, additive_time_transition_dict,  H)
+    return timed_mdp, untimed_S, wts_worst, wts_best
+
+
 
 
 
 if __name__ == "__main__":
-    H=7
-    phi = MTLFormula.Conjunction([MTLFormula.Eventually(MTLFormula.Predicate('s_3'),1,4),MTLFormula.Eventually(MTLFormula.Predicate('s_2'),3,6)])
-    # phi = MTLFormula.Conjunction([MTLFormula.Eventually(MTLFormula.Predicate('s_2'),1,4)])
+    H=8
+    H_receeding = 5
+    # phi = MTLFormula.Conjunction([MTLFormula.Eventually(MTLFormula.Predicate('s_3'),1,4),MTLFormula.Eventually(MTLFormula.Predicate('s_2'),3,6)])
+    phi = MTLFormula.Conjunction([MTLFormula.Always(MTLFormula.Predicate('s_2'),3,4)])
     Demands = [(phi,1)]
     
     start_mdp = time.time()
-    timed_mdp, untimed_S = MDP_example_two(H=H)
-    history_mdp = construct_history_MDP(timed_mdp, untimed_S)
+    timed_mdp, untimed_S, wts_worst, wts_best = MDP_example_two(H=H, H_receeding=H_receeding)
+    print(wts_worst)
+    history_mdp = construct_history_MDP(timed_mdp, untimed_S, H_receeding)
     end_mdp = time.time()
     print(end_mdp-start_mdp)
-    timerobust_lp(timed_mdp, history_mdp, H, Demands, untimed_S)
+    timerobust_lp(history_mdp, H, Demands, untimed_S, H_receeding, wts_worst)
