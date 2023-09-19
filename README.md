@@ -39,7 +39,7 @@ Dependencies:
 ## MTL
 
 The module `MTL.py` implements the formalism of MTL Formulae.
-It supports several boolean (Conjunction, Disjunction, Negation) and temporal operators (Always, Eventually).
+It supports several boolean (Conjunction, Disjunction, Negation) and temporal operators (Until, Always, Eventually).
 
 
 ### True and False boolean constants
@@ -88,3 +88,44 @@ are MITL Formulae respectively representing the Until, Always and Eventually tem
 * `phi2`: an MITL formula (for the Until operator only)
 * `t1`: lower time interval bound
 * `t2`: upper time interval bound
+
+
+
+
+
+
+## WTS and MDPs
+
+The module `WTS.py` implements the formalism of a Weighted Transition System with dynamic weights. It takes the following arguments:
+* `S`: the set of states
+* `s_0`: the initial state
+* `T`: the transitions
+* `AP`: the atomic predicates
+* `L`: the labelling function, returning for each state, its set of labels
+* `C`: the weight function. For instance, `C[('s_5_1',50,'s_5_2')] = 3` means that it takes 3 time units to transit between `'s_5_1'` and `'s_5_2'` a time `t=50`.
+
+
+In a similar fashion, `MDP_Object.py` and `MDP_examples.py` implement the MDPs related function, among which timed MDPs (function `construct_timed_MDP`) and history MDPs (function `construct_history_MDP`) that include time and history of visited states, in the state space. 
+
+
+
+
+## MTLTaskAllocSolver and MTLTaskAllocSolver_MDP2
+
+The function `generate_plan_mtl_wts(Demands,wts,PLANNING_HORIZON)` returns a plan/strategy, and takes 3 arguments:
+* `Demands`: a list of tuples, (`mitl_formula`,`priority`) assigning to each MITL demand a priority
+* `wts`: the WTS abstraction of the environment
+* `PLANNING_HORIZON`: the planning horizon (should be greater than the demands' horizon)
+
+The `MTLTaskAllocSolver_MDP2` class does so for the MDP model of the environment.
+
+
+
+
+## Experiments
+
+In a simulation of an office-like environment, we ran several experiments to show the scalability of our method:
+
+![Alt text](img/office_like_envt.PNG)
+
+See folder `experiments_wts` and `experiments_mdp` for details on the model, as well as the different MITL specifications.
