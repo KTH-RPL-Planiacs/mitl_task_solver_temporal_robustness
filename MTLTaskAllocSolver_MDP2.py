@@ -89,7 +89,7 @@ def timerobust_lp(hist_mdp, H, Demands, untimed_S, H_receeding, wts_worst, timeo
 
     model.solve(pulp.GUROBI_CMD(msg=True))
     solve_time = time.time()
-    model.to_json("nonworking_model.json")
+    # model.to_json("nonworking_model.json")
 
 
     status = pulp.LpStatus[model.status]

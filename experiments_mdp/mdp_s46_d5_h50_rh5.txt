@@ -1,0 +1,1033 @@
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Encoding time 0.19411396980285645
+LP variables 4346
+LP constrain 8593
+Encoding time 0.19411396980285645
+Solving time 0.3691432476043701
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21450471878051758
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21450471878051758
+Solving time 0.3730044364929199
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.20032048225402832
+LP variables 4346
+LP constrain 8593
+Encoding time 0.20032048225402832
+Solving time 0.44304633140563965
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20705056190490723
+LP variables 4346
+LP constrain 8594
+Encoding time 0.20705056190490723
+Solving time 0.3789951801300049
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2161273956298828
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2161273956298828
+Solving time 0.3760182857513428
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.22457051277160645
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22457051277160645
+Solving time 0.38359642028808594
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21198749542236328
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21198749542236328
+Solving time 0.38832688331604004
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2227025032043457
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2227025032043457
+Solving time 0.4010190963745117
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21622395515441895
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21622395515441895
+Solving time 0.38939976692199707
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.23205971717834473
+LP variables 4346
+LP constrain 8593
+Encoding time 0.23205971717834473
+Solving time 0.3884103298187256
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21617841720581055
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21617841720581055
+Solving time 0.3854210376739502
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2246413230895996
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2246413230895996
+Solving time 0.39159369468688965
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21407556533813477
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21407556533813477
+Solving time 0.39362192153930664
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2241373062133789
+LP variables 4346
+LP constrain 8595
+Encoding time 0.2241373062133789
+Solving time 0.5236783027648926
+LP variables 4346
+LP constrain 8595
+
+Encoding time 0.30995893478393555
+LP variables 4346
+LP constrain 8594
+Encoding time 0.30995893478393555
+Solving time 0.4428255558013916
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.243821382522583
+LP variables 4346
+LP constrain 8593
+Encoding time 0.243821382522583
+Solving time 0.3883697986602783
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20891475677490234
+LP variables 4346
+LP constrain 8593
+Encoding time 0.20891475677490234
+Solving time 0.40386199951171875
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22287416458129883
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22287416458129883
+Solving time 0.3793299198150635
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20386886596679688
+LP variables 4346
+LP constrain 8594
+Encoding time 0.20386886596679688
+Solving time 0.393665075302124
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21024656295776367
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21024656295776367
+Solving time 0.3942067623138428
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.26047420501708984
+LP variables 4346
+LP constrain 8593
+Encoding time 0.26047420501708984
+Solving time 0.4181346893310547
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2162320613861084
+LP variables 4346
+LP constrain 8592
+Encoding time 0.2162320613861084
+Solving time 0.4206869602203369
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.21296358108520508
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21296358108520508
+Solving time 0.3940911293029785
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21187353134155273
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21187353134155273
+Solving time 0.39284467697143555
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2162644863128662
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2162644863128662
+Solving time 0.392413854598999
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21621465682983398
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21621465682983398
+Solving time 0.40518832206726074
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21491122245788574
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21491122245788574
+Solving time 0.3938639163970947
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21030020713806152
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21030020713806152
+Solving time 0.3944823741912842
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.20030546188354492
+LP variables 4346
+LP constrain 8594
+Encoding time 0.20030546188354492
+Solving time 0.40077900886535645
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21610212326049805
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21610212326049805
+Solving time 0.4166581630706787
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2318563461303711
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2318563461303711
+Solving time 0.40096044540405273
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21948838233947754
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21948838233947754
+Solving time 0.4030568599700928
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21587276458740234
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21587276458740234
+Solving time 0.39330506324768066
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22477507591247559
+LP variables 4346
+LP constrain 8594
+Encoding time 0.22477507591247559
+Solving time 0.3943493366241455
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2298274040222168
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2298274040222168
+Solving time 0.38573527336120605
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2187023162841797
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2187023162841797
+Solving time 0.37932538986206055
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.22025609016418457
+LP variables 4346
+LP constrain 8595
+Encoding time 0.22025609016418457
+Solving time 0.39479732513427734
+LP variables 4346
+LP constrain 8595
+
+Encoding time 0.2158524990081787
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2158524990081787
+Solving time 0.42853808403015137
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2861659526824951
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2861659526824951
+Solving time 0.45487546920776367
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.22447681427001953
+LP variables 4346
+LP constrain 8595
+Encoding time 0.22447681427001953
+Solving time 0.40717506408691406
+LP variables 4346
+LP constrain 8595
+
+Encoding time 0.21507692337036133
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21507692337036133
+Solving time 0.40358996391296387
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21791625022888184
+LP variables 4346
+LP constrain 8595
+Encoding time 0.21791625022888184
+Solving time 0.3946514129638672
+LP variables 4346
+LP constrain 8595
+
+Encoding time 0.21451640129089355
+LP variables 4346
+LP constrain 8595
+Encoding time 0.21451640129089355
+Solving time 0.3942854404449463
+LP variables 4346
+LP constrain 8595
+
+Encoding time 0.21573686599731445
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21573686599731445
+Solving time 0.3858983516693115
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.22297072410583496
+LP variables 4346
+LP constrain 8594
+Encoding time 0.22297072410583496
+Solving time 0.38494205474853516
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21584391593933105
+LP variables 4346
+LP constrainSet parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+ 8594
+Encoding time 0.21584391593933105
+Solving time 0.3963136672973633
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2242438793182373
+LP variables 4346
+LP constrain 8595
+Encoding time 0.2242438793182373
+Solving time 0.48362183570861816
+LP variables 4346
+LP constrain 8595
+
+Encoding time 0.25337648391723633
+LP variables 4346
+LP constrain 8594
+Encoding time 0.25337648391723633
+Solving time 0.4269731044769287
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21627211570739746
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21627211570739746
+Solving time 0.41130900382995605
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2189178466796875
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2189178466796875
+Solving time 0.3902781009674072
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2227325439453125
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2227325439453125
+Solving time 0.3940298557281494
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20665740966796875
+LP variables 4346
+LP constrain 8594
+Encoding time 0.20665740966796875
+Solving time 0.40085482597351074
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.22352075576782227
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22352075576782227
+Solving time 0.39724063873291016
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2142009735107422
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2142009735107422
+Solving time 0.3827383518218994
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2194361686706543
+LP variables 4346
+LP constrain 8592
+Encoding time 0.2194361686706543
+Solving time 0.39574289321899414
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.2121889591217041
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2121889591217041
+Solving time 0.3841283321380615
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22278261184692383
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22278261184692383
+Solving time 0.37895846366882324
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21631884574890137
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21631884574890137
+Solving time 0.3795437812805176
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20928001403808594
+LP variables 4346
+LP constrain 8594
+Encoding time 0.20928001403808594
+Solving time 0.3999598026275635
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21611881256103516
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21611881256103516
+Solving time 0.38498449325561523
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2160193920135498
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2160193920135498
+Solving time 0.39333271980285645
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2161118984222412
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2161118984222412
+Solving time 0.3862640857696533
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21318602561950684
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21318602561950684
+Solving time 0.40014123916625977
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20917797088623047
+LP variables 4346
+LP constrain 8593
+Encoding time 0.20917797088623047
+Solving time 0.40355992317199707
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.199920654296875
+LP variables 4346
+LP constrain 8593
+Encoding time 0.199920654296875
+Solving time 0.420792818069458
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20574140548706055
+LP variables 4346
+LP constrain 8593
+Encoding time 0.20574140548706055
+Solving time 0.3954353332519531
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21370553970336914
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21370553970336914
+Solving time 0.3966543674468994
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21199727058410645
+LP variables 4346
+LP constrain 8592
+Encoding time 0.21199727058410645
+Solving time 0.38480234146118164
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.21289348602294922
+LP variables 4346
+LP constrain 8592
+Encoding time 0.21289348602294922
+Solving time 0.4047353267669678
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.20224547386169434
+LP variables 4346
+LP constrain 8592
+Encoding time 0.20224547386169434
+Solving time 0.3922843933105469
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.19707226753234863
+LP variables 4346
+LP constrain 8592
+Encoding time 0.19707226753234863
+Solving time 0.4028282165527344
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.22275209426879883
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22275209426879883
+Solving time 0.3849961757659912
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2033529281616211
+LP variables 4346
+LP constrain 8592
+Encoding time 0.2033529281616211
+Solving time 0.3906834125518799
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.2267293930053711
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2267293930053711
+Solving time 0.37147021293640137
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20923423767089844
+LP variables 4346
+LP constrain 8592
+Encoding time 0.20923423767089844
+Solving time 0.37425971031188965
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.21616387367248535
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21616387367248535
+Solving time 0.3853020668029785
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21622014045715332
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21622014045715332
+Solving time 0.39003491401672363
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22271323204040527
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22271323204040527
+Solving time 0.3926663398742676
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2141880989074707
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2141880989074707
+Solving time 0.38551783561706543
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2260596752166748
+LP variables 4346
+LP constrain 8592
+Encoding time 0.2260596752166748
+Solving time 0.3894169330596924
+LP variables 4346
+LP constrain 8592
+
+Encoding time 0.21593689918518066
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21593689918518066
+Solving time 0.38902902603149414
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22276926040649414
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22276926040649414
+Solving time 0.3908231258392334
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21633195877075195
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21633195877075195
+Solving time 0.3951389789581299
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2195572853088379
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2195572853088379
+Solving time 0.38751792907714844
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2233133316040039
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2233133316040039
+Solving time 0.3777470588684082
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22238540649414062
+LP variables 4346
+LP constrain 8594
+Encoding time 0.22238540649414062
+Solving time 0.37456369400024414
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21637272834777832
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21637272834777832
+Solving time 0.3902862071990967
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.22457075119018555
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22457075119018555
+Solving time 0.3910207748413086
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21615028381347656
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21615028381347656
+Solving time 0.3837716579437256
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22331881523132324
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22331881523132324
+Solving time 0.38699817657470703
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22236275672912598
+LP variables 4346
+LP constrain 8594
+Encoding time 0.22236275672912598
+Solving time 0.39029479026794434Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+Set parameter Username
+
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2347264289855957
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2347264289855957
+Solving time 0.3904385566711426
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21369600296020508
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21369600296020508
+Solving time 0.3969380855560303
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21168828010559082
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21168828010559082
+Solving time 0.38663554191589355
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2045142650604248
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2045142650604248
+Solving time 0.3815608024597168
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2287886142730713
+LP variables 4346
+LP constrain 8595
+Encoding time 0.2287886142730713
+Solving time 0.4150073528289795
+LP variables 4346
+LP constrain 8595
+
+Encoding time 0.22186946868896484
+LP variables 4346
+LP constrain 8594
+Encoding time 0.22186946868896484
+Solving time 0.39015626907348633
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21622776985168457
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21622776985168457
+Solving time 0.40383005142211914
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21204471588134766
+LP variables 4346
+LP constrain 8594
+Encoding time 0.21204471588134766
+Solving time 0.3918609619140625
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.22478270530700684
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22478270530700684
+Solving time 0.4006319046020508
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21631145477294922
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21631145477294922
+Solving time 0.37365055084228516
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2053968906402588
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2053968906402588
+Solving time 0.40645503997802734
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2042403221130371
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2042403221130371
+Solving time 0.3958170413970947
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.2033703327178955
+LP variables 4346
+LP constrain 8593
+Encoding time 0.2033703327178955
+Solving time 0.4065439701080322
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22403240203857422
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22403240203857422
+Solving time 0.39647769927978516
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21422934532165527
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21422934532165527
+Solving time 0.4000284671783447
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.21633291244506836
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21633291244506836
+Solving time 0.3942756652832031
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.20347976684570312
+LP variables 4346
+LP constrain 8593
+Encoding time 0.20347976684570312
+Solving time 0.3845064640045166
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.23185515403747559
+LP variables 4346
+LP constrain 8593
+Encoding time 0.23185515403747559
+Solving time 0.38481593132019043
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22273588180541992
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22273588180541992
+Solving time 0.4011824131011963
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.2250206470489502
+LP variables 4346
+LP constrain 8594
+Encoding time 0.2250206470489502
+Solving time 0.3793964385986328
+LP variables 4346
+LP constrain 8594
+
+Encoding time 0.21776795387268066
+LP variables 4346
+LP constrain 8593
+Encoding time 0.21776795387268066
+Solving time 0.37433648109436035
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22200632095336914
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22200632095336914
+Solving time 0.37902164459228516
+LP variables 4346
+LP constrain 8593
+
+Encoding time 0.22276949882507324
+LP variables 4346
+LP constrain 8593
+Encoding time 0.22276949882507324
+Solving time 0.3903837203979492
+LP variables 4346
+LP constrain 8593
+
+number of variables 1186
+number of constraints 161
+temporal robustness is 10.0
+encoding time is 70.66196656227112
+solve time is 0.08467817306518555
+{'robustness': 10.0, 'policy': {(('s_0_3', 0),): [('s_0_3_s_1_3', 1.0)], (('s_0_3', 0), ('s_1_3', 1)): [('s_1_3_s_1_4', 1.0)], (('s_0_3', 0), ('s_1_3', 1), ('s_1_4', 2)): [('s_1_3_s_1_4', 1.0)], (('s_0_3', 0), ('s_1_3', 1), ('s_1_4', 2), ('s_1_3', 3)): [('s_1_2_s_1_3', 1.0)]}, 'encoding time': 70.66196656227112, 'solving time': 0.08467817306518555, 'constraints': 161, 'variables': 1186, 's': 46, 'D': 5, 'h': 50, 'hr': 5}

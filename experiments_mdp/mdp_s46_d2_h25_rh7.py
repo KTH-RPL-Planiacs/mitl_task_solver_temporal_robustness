@@ -77,6 +77,7 @@ if __name__ == '__main__':
     data['D']=D
     data['h']=PLANNING_HORIZON
     data['hr']=RECEEDING_HORIZON
+    print(data)
     file_name = 'data/s46_d'+str(D)+'_h'+str(PLANNING_HORIZON)+'_rh'+str(RECEEDING_HORIZON)+'_timestamp'+str(round(time.time()))+'.pickle'
     file = open(file_name, "wb")
     pickle.dump(data, file)
